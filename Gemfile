@@ -39,6 +39,8 @@ gem 'slim-rails'
 
 gem 'redis'
 
+gem 'devise'
+
 # My Assets
 
 source 'https://rails-assets.org' do

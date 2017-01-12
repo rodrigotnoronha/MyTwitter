@@ -1,5 +1,7 @@
 class Tweet < ApplicationRecord
-  validates :message, presence: true, length: {minimum: 1, maximum: 144}
+  belongs_to :user
+
+  validates :message, presence: true, length: {minimum: 2, maximum: 144}
   after_create_commit { TweetBroadcastJob.perform_later(self) }
 
   def timestamp

@@ -20,8 +20,10 @@ jQuery(document).on 'turbolinks:load', ->
       $('#new_tweet').submit (e) ->
         $this = $(this)
         textarea = $this.find('#tweet_message')
-        if $.trim(textarea.val()).length > 1
-          App.timeline.send_tweet { message: textarea.val() }
-          textarea.val('')
+        if $.trim(textarea.val()).length >= 0
+          if App.timeline.send_tweet { message: textarea.val() }
+            textarea.val('')
+          else
+            alert 'Erro ao envia mesagem'
         e.preventDefault()
         return false

@@ -12,6 +12,6 @@ class TimelineChannel < ApplicationCable::Channel
   end
 
   def send_tweet(data)
-    Tweet.create!(message: data['tweet']['message'])
+    current_user.tweets.create!(message: data['tweet']['message'])
   end
 end

@@ -4,6 +4,7 @@
       .col-md-12
         p.card-text
           span.text-muted
+            = "@#{tweet.user.username}"
             |  at 
             = tweet.timestamp
             |  says
