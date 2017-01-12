@@ -41,6 +41,10 @@ gem 'redis'
 
 gem 'devise'
 
+gem 'elasticsearch-model'
+
+gem 'elasticsearch-rails'
+
 # My Assets
 
 source 'https://rails-assets.org' do

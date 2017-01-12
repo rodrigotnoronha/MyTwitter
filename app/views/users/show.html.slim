@@ -1,0 +1,12 @@
+p#notice = notice
+.card
+  .card-block
+    .row
+      .col-md-12
+        p.card-text
+          span.text-muted
+            = "@#{@user.username}"
+            |  email: 
+            = @user.email
+          br
+= link_to 'Back', users_path

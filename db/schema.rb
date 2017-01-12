@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111215057) do
+ActiveRecord::Schema.define(version: 20170112004203) do
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_followings_on_followed_id"
+    t.index ["user_id"], name: "index_followings_on_user_id"
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.string   "message",    limit: 144
