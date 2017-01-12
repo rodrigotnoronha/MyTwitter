@@ -9,4 +9,6 @@ p#notice = notice
             |  email: 
             = @user.email
           br
+          = @user.followers.to_a
 = link_to 'Back', users_path
+= link_to 'Follow', user_follow_path, method: :patch

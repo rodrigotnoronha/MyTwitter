@@ -1,9 +1,12 @@
-h1 Listing users
-= form_for users_search_path, method: :get do |f|
-  p
-    = f.label "Search for"
-    = text_field_tag :q, params[:q]
-    = submit_tag "Go", name: nil
+.row
+  = form_for users_path, method: :get do |f|
+    #custom-search-input
+      .input-group.col-md-12
+        input.form-control.input-lg placeholder="Buscar" name="q" id="q" type="text" /
+        span.input-group-btn
+          button.btn.btn-info.btn-lg type="button" 
+            i.glyphicon.glyphicon-search
+      
 table
   thead
     tr

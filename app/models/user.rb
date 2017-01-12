@@ -1,7 +1,5 @@
-require 'elasticsearch/model'
-
 class User < ApplicationRecord
-  include Elasticsearch::Model
+  searchkick
 
   has_many :tweets
   has_many :followings
@@ -11,17 +9,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :username
-
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            fields: ['username', 'name', 'email']
-          }
-        }
-      }
-    )
-  end
 end

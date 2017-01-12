@@ -1,16 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :follow, :unfollow]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.where.not(id: current_user.id)
-  end
-
-  def search
     if params[:q].nil?
-      @users = []
+      @users = User.where.not(id: current_user.id).limit(50)
     else
       @users = User.search params[:q]
     end
@@ -22,7 +18,10 @@ class UsersController < ApplicationController
   end
 
   def follow
-    #code
+    @following = Following.new(user: @user , follower: current_user)
+    if @following.save
+      render :show
+    end
   end
 
   def unfollow
@@ -33,10 +32,5 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.fetch(:user, {})
     end
 end
