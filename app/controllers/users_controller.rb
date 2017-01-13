@@ -26,7 +26,10 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    #code
+    @following = Following.where(user_id: @user.id , follower_id: current_user.id).first
+    if @following.destroy
+      render :show
+    end
   end
 
   private

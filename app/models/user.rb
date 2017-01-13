@@ -11,8 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :username
 
-  def i_follow?
-    self.followers.pluck(:follower_id).include? current_user.id
+  def follow?(user)
+    user.followers.include? self
   end
 
   def followings_and_me

@@ -13,7 +13,6 @@
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
-
     <body>
         <div id="wrapper">
             <!-- Sidebar -->
@@ -24,11 +23,21 @@
                             Twitter CL
                         </a>
                     </li>
+                    <% if current_user %>
+                      <li>
+                        <a href="#">
+                          @<%= current_user.username %>
+                        </a>
+                      </li>
+                    <% end %>
                     <li>
                       <%= link_to "Home", root_path %>
                     </li>
                     <li>
-                        <a href="#">Followers</a>
+                      <%= link_to "Search users", users_path %>
+                    </li>
+                    <li>
+                      <%= link_to "Followers", followers_path %>
                     </li>
                     <li>
                         <a href="#">Following</a>

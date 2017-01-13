@@ -1,7 +1,7 @@
 .panel.panel-default
-  .panel-heading Usuários
+  .panel-heading Followers
   .panel-body
-    = form_for users_path, method: :get do |f|
+    = form_for followers_path, method: :get do |f|
       #custom-search-input
         .input-group.col-md-12
           input.form-control.input-lg placeholder="Buscar" name="q" id="q" type="text" /
@@ -10,7 +10,7 @@
               i.glyphicon.glyphicon-search
   /! List group
   .list-group#users
-    - @users.each do |user|
-      = link_to  user, class: 'list-group-item'
-        h5.list-group-item-heading = "@#{user.username}"
-        p.list-group-item-text = user.email
+    - @followers.each do |follower|
+      = link_to  follower, class: 'list-group-item'
+        h5.list-group-item-heading = "@#{follower.username}"
+        p.list-group-item-text = follower.email
