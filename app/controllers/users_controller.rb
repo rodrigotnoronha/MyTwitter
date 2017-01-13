@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @followers = @user.followers.joins(:users)
   end
 
   def follow

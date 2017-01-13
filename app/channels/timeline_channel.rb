@@ -1,6 +1,6 @@
 class TimelineChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'timeline_channel'
+    stream_from "users:#{current_user.id}:timeline_channel"
   end
 
   def unsubscribed
@@ -12,6 +12,6 @@ class TimelineChannel < ApplicationCable::Channel
   end
 
   def send_tweet(data)
-    current_user.tweets.create!(message: data['tweet']['message'])
+    TweetBroadcastJob.perform_later data, current_user.id
   end
 end

@@ -3,6 +3,7 @@ jQuery(document).on 'turbolinks:load', ->
   if $('#messages').length > 0
     App.timeline = App.cable.subscriptions.create {
         channel: 'TimelineChannel'
+        user_id: messages.data('user_id')
       },
       connected: ->
         console.log 'Conectado'
@@ -12,7 +13,7 @@ jQuery(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        messages.append data['tweet']
+        messages.prepend data['tweet']
 
       send_tweet: (tweet) ->
         @perform 'send_tweet', tweet: tweet

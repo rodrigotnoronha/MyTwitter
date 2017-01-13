@@ -1,12 +1,13 @@
-h1 Listing tweets
-
-div#messages
-  = render @tweets
-  
-= form_for @tweet, url: '#' do |f|
-  .form-group
-    = f.label :message
-    = f.text_area :message, class: 'form-control'
-    small.text-muted
-      | From 1 to 144 characters
-  = f.submit "Post", class: 'btn btn-primary btn-lg'
+.panel.panel-default
+  .panel-heading Timeline
+  .panel-body
+    = form_for @tweet, url: '#' do |f|
+      #custom-search-input
+        .input-group.col-md-12
+          input.form-control.input-lg placeholder="Enviar" name="tweet[message]" id="tweet_message" type="text_area" /
+          span.input-group-btn
+            button.btn.btn-info.btn-lg type="submit" 
+              i.glyphicon.glyphicon-send
+  /! List group
+  .list-group#messages
+    = render @tweets
