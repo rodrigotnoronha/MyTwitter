@@ -25,7 +25,7 @@
                     </li>
                     <% if current_user %>
                       <li>
-                        <a href="#">
+                        <a href="">
                           @<%= current_user.username %>
                         </a>
                       </li>
@@ -43,7 +43,7 @@
                         <a href="#">Following</a>
                     </li>
                     <li>
-                        <a href="#">Account</a>
+                        <%= link_to "Account", edit_user_registration_path %>
                     </li>
                     <li>
                       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
