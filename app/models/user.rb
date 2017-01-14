@@ -19,4 +19,10 @@ class User < ApplicationRecord
     users_tweets = Following.where(follower_id: self.id).pluck(:user_id)
     users_tweets << self.id
   end
+
+  def timeline
+    @tweets = Tweet.where(user_id: self.followings_and_me).order('created_at desc')
+    # @retweets = Retweet.where(user_id: self.followings_and_me).order('created_at desc')
+    # @tweets = @tweets + @retweets
+  end
 end
