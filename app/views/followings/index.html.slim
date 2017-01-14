@@ -11,6 +11,6 @@
   /! List group
   .list-group#users
     - @followings.each do |following|
-      = link_to  following, class: 'list-group-item'
-        h5.list-group-item-heading = "@#{following.username}"
-        p.list-group-item-text = following.email
+      = link_to  following.follower, class: 'list-group-item'
+        h5.list-group-item-heading = "@#{following.follower.username}"
+        p.list-group-item-text = following.follower.email
