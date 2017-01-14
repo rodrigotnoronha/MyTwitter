@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Using ActionCable for timeline WebSocket
 
-Things you may want to cover:
-
-* Ruby version
+* Ruby version 2.3.3
 
 * System dependencies
+  - Postgres 9.5.2
+  - ElasticSearch 5.0
+  - Rails 5
+  - Redis 3.0.6
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Heroku link:
+  - [twitter-cl.herokuapp.com](https://twitter-cl.herokuapp.com)
