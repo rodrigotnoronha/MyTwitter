@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   def timeline
     @tweets = Tweet.where(user_id: self.followings_and_me).order('created_at desc')
-    # @retweets = Retweet.where(user_id: self.followings_and_me).order('created_at desc')
-    # @tweets = @tweets + @retweets
+    @retweets = Retweet.where(user_id: self.followings_and_me).order('created_at desc')
+    @tweets = @tweets + @retweets
   end
 end

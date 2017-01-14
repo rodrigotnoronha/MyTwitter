@@ -10,4 +10,4 @@
               i.glyphicon.glyphicon-send
   /! List group
   .list-group#messages
-    = render @tweets
+    = render partial: 'tweet', collection: @tweets
