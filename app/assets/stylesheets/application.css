@@ -145,3 +145,11 @@
          margin-right: 0;
      }
  }
+
+ .list-group-item {
+   border-bottom-style: none !important;
+ }
+
+ #messages > a.btn.btn-primary {
+   text-align: right;
+ }

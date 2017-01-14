@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   def retweet
     @retweet = Retweet.new user_id: current_user.id, tweet_id: @tweet.id
     if @retweet.save
-      render :index
+      redirect_to :root
     end
   end
 

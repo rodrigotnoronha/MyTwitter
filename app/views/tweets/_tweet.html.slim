@@ -1,3 +1,6 @@
 a.list-group-item href="#" 
   h5.list-group-item-heading = "@#{tweet.user.username} às #{tweet.timestamp}"
   p.list-group-item-text = tweet.try(:message) || tweet.try(:to_s)
+  - if tweet.try(:message)
+    = link_to tweet_retweet_path(tweet), method: :patch, class: 'btn btn-info', title: 'Reply'  do
+      i.glyphicon.glyphicon-share-alt
