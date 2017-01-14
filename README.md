@@ -9,6 +9,3 @@ Using ActionCable for timeline WebSocket
   - ElasticSearch 5.0
   - Rails 5
   - Redis 3.0.6
-
-* Heroku link:
-  - [twitter-cl.herokuapp.com](https://twitter-cl.herokuapp.com)
